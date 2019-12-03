@@ -1,0 +1,17 @@
+valueTemp_msg2 db "           KB free space", 0
+
+;...
+
+mov ecx, 11
+mov ebx, 10
+
+loop_label:
+xor edx, edx
+div ebx
+add edx, 48
+mov valueTemp_msg2[ecx - 1], dl
+loop loop_label
+
+;...
+
+push offset valueTemp_msg2;valueTemp_msg;
